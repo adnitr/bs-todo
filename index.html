@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySite</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a task</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="add-task-form">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Task title</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  required
+                />
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Urgent"
+                  id="urgent"
+                />
+                <label class="form-check-label" for="urgent"> Urgent </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Important"
+                  id="important"
+                />
+                <label class="form-check-label" for="important">
+                  Important
+                </label>
+              </div>
+              <div class="d-flex justify-content-end mt-3">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  id="modal-submit-btn"
+                >
+                  Add task
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container-lg">
+        <a href="#" class="navbar-brand">Adarsh's TODOs</a>
+        <!-- COLLAPSE BUTTON -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- COLLAPSABLE CONTENT -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="ms-auto" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search task..."
+              aria-label="Search"
+              id="search-input"
+            />
+          </form>
+          <button
+            type="button"
+            class="btn btn-warning ms-auto"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            id="modal-open-btn"
+          >
+            Add a task
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-md mt-5">
+      <div class="row">
+        <div class="col-sm-2 border-end">
+          <!-- FILTERS -->
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 style="margin-bottom: 0">Filters</h5>
+            <button class="btn btn-sm btn-outline-dark" id="clear-f">
+              Clear filters
+            </button>
+          </div>
+          <div class="form-check mt-3">
+            <input
+              class="form-check-input filter-cb"
+              type="checkbox"
+              value="urgent"
+              id="urgent-f"
+            />
+            <label class="form-check-label" for="urgent-f"> Urgent </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input filter-cb"
+              type="checkbox"
+              value="important"
+              id="important-f"
+            />
+            <label class="form-check-label" for="important-f">
+              Important
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-10">
+          <!-- TABLE -->
+          <div class="container-sm">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Priority</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <!-- <tr>
+                  <th scope="row">1</th>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>
+                      <div class="row gx-1 align-items-center">
+                        <div class="col-auto"><span class="badge text-bg-danger">Urgent</span></div>
+                        <div class="col-auto"><span class="badge text-bg-warning">Important</span></div>
+                      </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </body>
+</html>
